@@ -1,5 +1,5 @@
 import logging
-
+import os  # Canlı server portunu dinamik tutmaq üçün lazımdır
 from pathlib import Path
 
 from flask import Flask, jsonify, request, send_from_directory
@@ -39,6 +39,7 @@ def analyze():
     achievements = data.get("achievements", 0)
     steam_username = data.get("steam_username", "").strip()
 
+    user = None
     if steam_username:
         user = get_steam_user(steam_username)
         if user:
@@ -89,5 +90,8 @@ def steam_profile():
     }), 200
 
 
+# CANLI SERVER PORT TƏNZİMLƏMƏSİ
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    # Railway-in verdiyi xüsusi portu oxuyur, tapmasa lokal üçün 5000-i işə salır
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
