@@ -1,0 +1,180 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
+STEAM_DB = {
+    "player1": {
+        "username": "LoreMaster_99",
+        "steamid": "76561197960435531",
+        "name": "LoreMaster_99",
+        "favorite_game": "The Witcher 3: Wild Hunt",
+        "games_count": 142,
+        "hours_played": 1980,
+        "detailed_games": {
+            "The Witcher 3: Wild Hunt": 450,
+            "Cyberpunk 2077": 320,
+            "Baldur's Gate 3": 280,
+            "Elden Ring": 210,
+            "Red Dead Redemption 2": 190,
+            "Skyrim": 150,
+            "Mass Effect Legendary Edition": 110,
+            "Dragon Age: Inquisition": 90,
+            "Fallout 4": 85,
+            "Stardew Valley": 45,
+            "Hades": 30,
+            "Portal 2": 20,
+        },
+        "analysis": {
+            "title": "Story Knight",
+            "confidence": 94,
+            "tags": ["rpg", "narrative", "adventurous"],
+            "comparison_summary": "Spends 85% of total playtime in deep, choice-driven RPGs and narrative masterpieces. Heavily prefers rich character arcs and world-building over competitive matchmaking.",
+            "genre_distribution": {
+                "RPG": 75,
+                "Action": 12,
+                "Adventure": 10,
+                "Simulation": 2,
+                "Puzzle": 1,
+            },
+        },
+        "game_recommendations": ["Dragon's Dogma 2", "Starfield", "Disco Elysium"],
+    },
+    "player2": {
+        "username": "Vandal_Pro_X",
+        "steamid": "76561198012345678",
+        "name": "Vandal_Pro_X",
+        "favorite_game": "Counter-Strike 2",
+        "games_count": 34,
+        "hours_played": 4620,
+        "detailed_games": {
+            "Counter-Strike 2": 2100,
+            "Valorant": 1200,
+            "Apex Legends": 650,
+            "Rainbow Six Siege": 400,
+            "Overwatch 2": 150,
+            "Call of Duty: Warzone": 80,
+            "PUBG: Battlegrounds": 20,
+            "Aim Labs": 15,
+            "Left 4 Dead 2": 3,
+            "Portal": 2,
+        },
+        "analysis": {
+            "title": "Ranked Warlord",
+            "confidence": 98,
+            "tags": ["fps", "competitive", "tactical"],
+            "comparison_summary": "Over 90% of hours are locked into high-stakes, tactical FPS environments. Exhibits extreme mechanical dedication, high reflex dependency, and a strict focus on competitive ranked ladders.",
+            "genre_distribution": {
+                "FPS": 84,
+                "Battle Royale": 16,
+            },
+        },
+        "game_recommendations": ["The Finals", "Escape from Tarkov", "Spectre Divide"],
+    },
+    "player3": {
+        "username": "CozyArchitect",
+        "steamid": "76561198188443322",
+        "name": "CozyArchitect",
+        "favorite_game": "Cities: Skylines II",
+        "games_count": 89,
+        "hours_played": 1540,
+        "detailed_games": {
+            "Cities: Skylines II": 380,
+            "Stardew Valley": 310,
+            "Animal Crossing: New Horizons": 220,
+            "The Sims 4": 190,
+            "Civilization VI": 150,
+            "Satisfactory": 110,
+            "Slime Rancher": 70,
+            "Dorfromantik": 50,
+            "Unpacking": 25,
+            "Dave the Diver": 20,
+            "Terraria": 15,
+        },
+        "analysis": {
+            "title": "Zen Architect",
+            "confidence": 89,
+            "tags": ["cozy", "simulation", "strategy"],
+            "comparison_summary": "Playtime is heavily balanced between urban planning simulators and cozy farming loops. Zero engagement with high-stress combat, strongly prioritizing creative optimization and relaxing progression.",
+            "genre_distribution": {
+                "Simulation": 86,
+                "Strategy": 14,
+            },
+        },
+        "game_recommendations": ["Manor Lords", "Roots of Pacha", "Tiny Glade"],
+    },
+    "player4": {
+        "username": "LetMeSoloThem",
+        "steamid": "76561198255667788",
+        "name": "LetMeSoloThem",
+        "favorite_game": "Dark Souls III",
+        "games_count": 62,
+        "hours_played": 2810,
+        "detailed_games": {
+            "Dark Souls III": 650,
+            "Elden Ring": 580,
+            "Sekiro: Shadows Die Twice": 420,
+            "Hollow Knight": 310,
+            "Dead Cells": 250,
+            "Hades II": 180,
+            "Lies of P": 150,
+            "Celeste": 110,
+            "Binding of Isaac: Rebirth": 90,
+            "Cuphead": 50,
+            "Monster Hunter: World": 20,
+        },
+        "analysis": {
+            "title": "Hardcore Challenger",
+            "confidence": 96,
+            "tags": ["soulslike", "roguelike", "hardcore"],
+            "comparison_summary": "95% of gaming distribution goes into brutally punishing mechanics, loop-based roguelikes, and precise platformers. Shows an exceptionally high tolerance for failure and a massive drive for skill mastery.",
+            "genre_distribution": {
+                "RPG": 64,
+                "Action": 18,
+                "Adventure": 15,
+                "Roguelike": 3,
+            },
+        },
+        "game_recommendations": ["Black Myth: Wukong", "Nine Sols", "Another Crab's Treasure"],
+    },
+    "player5": {
+        "username": "PixelCrafter_X",
+        "steamid": "76561198339001122",
+        "name": "PixelCrafter_X",
+        "favorite_game": "Minecraft",
+        "games_count": 210,
+        "hours_played": 3115,
+        "detailed_games": {
+            "Minecraft": 1400,
+            "Terraria": 550,
+            "Roblox": 450,
+            "Garry's Mod": 310,
+            "Subnautica": 180,
+            "Valheim": 120,
+            "Don't Starve Together": 60,
+            "No Man's Sky": 25,
+            "Lego Worlds": 12,
+            "Among Us": 8,
+        },
+        "analysis": {
+            "title": "Creative Explorer",
+            "confidence": 91,
+            "tags": ["sandbox", "survival", "indie"],
+            "comparison_summary": "Thrives almost exclusively in unscripted sandbox environments and voxel-based building survival loops. Prioritizes player freedom, emergent gameplay, and custom modification over structural campaigns.",
+            "genre_distribution": {
+                "Sandbox": 87,
+                "Survival": 12,
+                "Other": 1,
+            },
+        },
+        "game_recommendations": ["Palworld", "Enshrouded", "Terraria 2"],
+    },
+}
+
+
+def get_steam_user(username):
+    user = STEAM_DB.get(username)
+    if user:
+        logger.info("Found mock Steam user: %s", username)
+        return dict(user)
+    logger.warning("Steam user not found: %s", username)
+    return None
